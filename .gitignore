@@ -1,0 +1,12 @@
+.DS_Store
+._*
+.cache
+.project
+.settings
+.tmproj
+
+.svn
+.idea
+.history
+node_modules
+dist
