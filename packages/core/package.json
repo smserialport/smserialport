@@ -1,0 +1,9 @@
+{
+  "name": "@simple-serialport-gsm/core",
+  "version": "0.0.1",
+  "dependencies": {
+    "@simple-serialport-gsm/adapters": "workspace:*",
+    "@simple-serialport-gsm/types": "workspace:^0.0.1",
+    "add": "^2.0.6"
+  }
+}

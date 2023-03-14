@@ -1,5 +1,5 @@
-export default abstract class Adapter {
-  abstract handle(options: AdapterHandleOptinos): void
+export abstract class Adapter<T = void> {
+  abstract handle(options: AdapterHandleOptinos): T
 }
 
 /**

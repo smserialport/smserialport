@@ -1,1 +1,1 @@
-export * from '../src/MainlandChinaAdapter'
+export * from './MainlandChinaAdapter'

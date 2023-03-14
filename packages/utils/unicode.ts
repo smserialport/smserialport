@@ -1,4 +1,4 @@
-export default class Unicode {
+export class Unicode {
   /**
    * string to unicode [0000 - FFFF]
    * @param str

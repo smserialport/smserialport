@@ -1,12 +1,11 @@
-import Adapter from './types'
-import Unicode from './unicode'
+import { Unicode } from '@simple-serialport-gsm/utils'
 
-import type { AdapterHandleOptinos } from './types'
+import { Adapter, AdapterHandleOptinos } from '@simple-serialport-gsm/types'
 
 /**
  * 中国大陆地区
  */
-export class MainlandChinaAdapter extends Adapter {
+export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
   public handle(options: AdapterHandleOptinos) {
     // 发送人手机号的处理
     const sender = '089168' + this.reverse(`${options.sender}F`)
@@ -41,4 +40,9 @@ export class MainlandChinaAdapter extends Adapter {
 
     return phoneReverse.join('')
   }
+}
+
+export interface MainlandChinaHandleReturn {
+  CMGSLength: number
+  message: string
 }
