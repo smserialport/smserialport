@@ -1,5 +1,5 @@
 {
-  "name": "@simple-serialport-gsm/core",
+  "name": "simple-serialport-gsm",
   "version": "0.0.1",
   "scripts": {
     "build": "unbuild"
@@ -10,16 +10,21 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
-    }
+    },
+    "./*": "./*"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "dependencies": {
     "@simple-serialport-gsm/adapters": "workspace:*",
+    "@simple-serialport-gsm/core": "workspace:*"
+  },
+  "devDependencies": {
     "@simple-serialport-gsm/types": "workspace:*"
   }
 }

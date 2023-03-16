@@ -2,7 +2,7 @@
   "name": "@simple-serialport-gsm/types",
   "version": "0.0.1",
   "scripts": {
-    "build": "tsup src/index.ts"
+    "build": "rimraf dist && tsup src/index.ts"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",

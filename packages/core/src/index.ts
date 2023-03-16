@@ -4,7 +4,7 @@ export default class Serialport {
   private static _adapter: Adapter
   // private static _
 
-  static use<T = void>(adapter: new () => Adapter<T>) {
+  static use(adapter: new () => Adapter) {
     this._adapter = new adapter()
   }
 
