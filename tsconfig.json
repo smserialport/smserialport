@@ -15,6 +15,7 @@
 
     "baseUrl": ".",
     "paths": {
+      "@simple-serialport-gsm/core": ["packages/core/src/index.ts"],
       "@simple-serialport-gsm/adapters": ["packages/adapters/src/index.ts"],
       "@simple-serialport-gsm/utils": ["packages/utils/src/index.ts"],
       "@simple-serialport-gsm/types": ["packages/types/src/index.ts"]

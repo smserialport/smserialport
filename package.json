@@ -2,7 +2,6 @@
   "name": "@simple-serialport-gsm/monorepo",
   "version": "0.0.1",
   "description": "一个通过串口发送短信的工具",
-  "main": "dist/index.js",
   "scripts": {
     "dev": "tsc -w",
     "build": "pnpm -r --filter=./packages/** run build"

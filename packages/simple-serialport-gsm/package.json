@@ -2,23 +2,14 @@
   "name": "simple-serialport-gsm",
   "version": "0.0.1",
   "scripts": {
-    "build": "unbuild"
+    "build": "rimraf dist && tsup src/index.ts"
   },
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    },
-    "./*": "./*"
-  },
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "index.d.ts",
   "files": [
     "dist",
-    "*.d.ts"
+    "index.d.ts"
   ],
   "dependencies": {
     "@simple-serialport-gsm/adapters": "workspace:*",

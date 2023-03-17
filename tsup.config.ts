@@ -7,5 +7,5 @@ export default defineConfig({
   dts: true,
   clean: true,
   shims: false,
-  external: [/@simple-serialport-gsm/]
+  external: [/@simple\-serialport\-gsm/]
 })

@@ -1,1 +1,2 @@
-export * from './adapter'
+export { Adapter } from './adapter'
+export type { AdapterHandleOptinos } from './adapter'
