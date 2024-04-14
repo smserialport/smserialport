@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2018",
+    "jsx": "preserve",
+    "lib": ["esnext"],
     "module": "esnext",
-    "lib": ["esnext", "dom"],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "types": ["node"],
     "strict": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "jsx": "preserve",
-    "types": ["node"],
-
     "baseUrl": ".",
     "paths": {
       "@simple-serialport-gsm/core": ["packages/core/src/index.ts"],

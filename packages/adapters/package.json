@@ -2,7 +2,8 @@
   "name": "@simple-serialport-gsm/adapters",
   "version": "0.0.1",
   "scripts": {
-    "build": "rimraf dist && tsup src/index.ts"
+    "build": "unbuild",
+    "stub": "unbuild --stub"
   },
   "exports": {
     ".": {
@@ -13,11 +14,14 @@
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "dependencies": {
     "@simple-serialport-gsm/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@simple-serialport-gsm/types": "workspace:*"
   }
 }

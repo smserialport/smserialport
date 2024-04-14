@@ -2,18 +2,19 @@
   "name": "@simple-serialport-gsm/utils",
   "version": "0.0.1",
   "scripts": {
-    "build": "rimraf dist && tsup src/index.ts"
+    "build": "unbuild",
+    "stub": "unbuild --stub"
   },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ]

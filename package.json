@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "一个通过串口发送短信的工具",
   "scripts": {
-    "dev": "tsc -w",
-    "build": "pnpm -r --filter=./packages/** run build"
+    "build": "rimraf packages/*/dist --glob && pnpm -r --filter=./packages/** run build",
+    "dev": "pnpm -r --filter=./packages/** run stub"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/imba97/simple-serialport-gsm.git"
@@ -25,6 +26,12 @@
   },
   "devDependencies": {
     "@types/node": "^18.14.6",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-sonarjs": "^0.25.0",
     "rimraf": "^4.4.0",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5",

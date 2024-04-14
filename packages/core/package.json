@@ -2,7 +2,8 @@
   "name": "@simple-serialport-gsm/core",
   "version": "0.0.1",
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "stub": "unbuild --stub"
   },
   "sideEffects": false,
   "exports": {
