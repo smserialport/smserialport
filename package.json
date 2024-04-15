@@ -1,6 +1,6 @@
 {
   "name": "@simple-serialport-gsm/monorepo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "packageManager": "pnpm@8.15.7",
   "description": "一个通过串口发送短信的工具",
