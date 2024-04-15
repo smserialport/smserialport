@@ -1,12 +1,15 @@
-import { Unicode } from '@simple-serialport-gsm/utils'
+import { SerialPort } from 'serialport'
 
-import { Adapter, AdapterHandleOptinos } from '@simple-serialport-gsm/types'
+import { Unicode, Utils } from '@simple-serialport-gsm/utils'
+import { Adapter, AdapterOptinos } from '@simple-serialport-gsm/types'
+
+import type { WindowsOpenOptions } from '@simple-serialport-gsm/types'
 
 /**
  * 中国大陆地区
  */
 export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
-  public handle(options: AdapterHandleOptinos) {
+  public config(options: AdapterOptinos) {
     // 发送人手机号的处理
     const sender = '089168' + this.reverse(`${options.sender}F`)
     // 接收人手机号的处理
@@ -18,10 +21,29 @@ export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
     // CMGS 长度
     const CMGSLength = CMGSLengthString.length / 2
 
-    return {
+    this._config = {
       CMGSLength,
       message: sender + CMGSLengthString
     }
+  }
+
+  send(options: WindowsOpenOptions): boolean {
+    const port = new SerialPort(options)
+
+    port.on('open', async () => {
+      port.write('AT+CMGF=0\r')
+      await Utils.sleep(500)
+      port.write('AT+CSCS="GSM"\r')
+      await Utils.sleep(500)
+      port.write(`AT+CMGS=${this._config.CMGSLength}\r`)
+      await Utils.sleep(500)
+      port.write(this._config.message)
+      await Utils.sleep(500)
+      port.write(Buffer.from([0x1a]))
+      port.write('\r')
+    })
+
+    return true
   }
 
   /**

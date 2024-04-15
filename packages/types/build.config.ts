@@ -7,6 +7,5 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true
-  },
-  externals: ['@simple-serialport-gsm/types']
+  }
 })

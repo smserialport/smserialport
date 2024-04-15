@@ -4,7 +4,8 @@
   "description": "一个通过串口发送短信的工具",
   "scripts": {
     "build": "rimraf packages/*/dist --glob && pnpm -r --filter=./packages/** run build",
-    "dev": "pnpm -r --filter=./packages/** run stub"
+    "stub": "pnpm -r --filter=./packages/** run stub",
+    "clean": "rimraf --glob packages/*/node_modules"
   },
   "type": "module",
   "repository": {
@@ -21,9 +22,6 @@
     "url": "https://github.com/imba97/simple-serialport-gsm/issues"
   },
   "homepage": "https://github.com/imba97/simple-serialport-gsm#readme",
-  "dependencies": {
-    "serialport": "^10.5.0"
-  },
   "devDependencies": {
     "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "^7.4.0",

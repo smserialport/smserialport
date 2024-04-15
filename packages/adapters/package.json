@@ -12,14 +12,15 @@
       "import": "./dist/index.mjs"
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@simple-serialport-gsm/utils": "workspace:*"
+    "@simple-serialport-gsm/utils": "workspace:*",
+    "serialport": "^12.0.0"
   },
   "devDependencies": {
     "@simple-serialport-gsm/types": "workspace:*"
