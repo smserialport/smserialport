@@ -1,11 +1,12 @@
 {
   "name": "@simple-serialport-gsm/monorepo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "一个通过串口发送短信的工具",
   "scripts": {
     "build": "rimraf packages/*/dist --glob && pnpm -r --filter=./packages/** run build",
     "stub": "pnpm -r --filter=./packages/** run stub",
+    "release": "bumpp -r",
     "clean": "rimraf --glob packages/*/node_modules"
   },
   "type": "module",
@@ -27,6 +28,7 @@
     "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
+    "bumpp": "^9.4.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
