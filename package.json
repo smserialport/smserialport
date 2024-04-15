@@ -1,6 +1,7 @@
 {
   "name": "@simple-serialport-gsm/monorepo",
   "version": "0.0.1",
+  "private": true,
   "description": "一个通过串口发送短信的工具",
   "scripts": {
     "build": "rimraf packages/*/dist --glob && pnpm -r --filter=./packages/** run build",
