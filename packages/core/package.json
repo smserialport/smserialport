@@ -6,6 +6,11 @@
     "stub": "unbuild --stub"
   },
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imba97/simple-serialport-gsm",
+    "directory": "packages/core"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

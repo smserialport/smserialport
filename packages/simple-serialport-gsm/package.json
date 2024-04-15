@@ -5,6 +5,10 @@
     "build": "unbuild",
     "stub": "unbuild --stub"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imba97/simple-serialport-gsm"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
