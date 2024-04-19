@@ -4,7 +4,7 @@ export abstract class Adapter<TConfig = void> {
   protected _config!: TConfig
 
   abstract config(options: AdapterOptinos): void
-  abstract send(options: WindowsOpenOptions): boolean
+  abstract send(options: WindowsOpenOptions): Promise<boolean>
 }
 
 export interface SerialPortOptions {
