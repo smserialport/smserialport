@@ -7,9 +7,9 @@
 ```js
 import { Serialport, MainlandChinaAdapter } from "simple-serialport-gsm";
 
-const serialport = new Serialport()
+const serialport = new Serialport(MainlandChinaAdapter)
 
-serialport.use(MainlandChinaAdapter).config({
+serialport.config({
   // 短信发送者
   sender: '17*******97',
   // 短信接收者
@@ -28,6 +28,6 @@ serialport.send({
 })
 ```
 
-接受短信
+接收短信
 
 ![](./images/received-message.png)
