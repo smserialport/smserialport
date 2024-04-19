@@ -5,12 +5,10 @@ import {
 } from '@simple-serialport-gsm/types'
 
 export default class Serialport<TConfig> {
-  private _adapter!: Adapter<TConfig>
+  private _adapter: Adapter<TConfig>
 
-  use(adapter: new () => Adapter<TConfig>) {
+  constructor(adapter: new () => Adapter<TConfig>) {
     this._adapter = new adapter()
-
-    return this
   }
 
   config(options: AdapterOptinos) {
