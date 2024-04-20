@@ -70,7 +70,7 @@ importers:
         specifier: workspace:*
         version: link:../types
 
-  packages/simple-serialport-gsm:
+  packages/smserialport:
     dependencies:
       '@smserialport/adapters':
         specifier: workspace:*
