@@ -1,6 +1,6 @@
 # smserialport
 
-GSM
+SMS Serialport
 
 # Documentation
 
