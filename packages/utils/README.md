@@ -1,7 +1,7 @@
-# @simple-serialport-gsm/utils
+# @smserialport/utils
 
 工具
 
 # Documentation
 
-[simple-serialport-gsm](https://github.com/imba97/simple-serialport-gsm)
+[smserialport](https://github.com/imba97/smserialport)

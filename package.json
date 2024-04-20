@@ -1,5 +1,5 @@
 {
-  "name": "@simple-serialport-gsm/monorepo",
+  "name": "@smserialport/monorepo",
   "version": "0.0.4",
   "private": true,
   "packageManager": "pnpm@8.15.7",
@@ -13,7 +13,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/imba97/simple-serialport-gsm.git"
+    "url": "git+ssh://git@github.com/imba97/smserialport.git"
   },
   "keywords": [
     "zip",
@@ -22,9 +22,9 @@
   "author": "imba97",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imba97/simple-serialport-gsm/issues"
+    "url": "https://github.com/imba97/smserialport/issues"
   },
-  "homepage": "https://github.com/imba97/simple-serialport-gsm#readme",
+  "homepage": "https://github.com/imba97/smserialport#readme",
   "devDependencies": {
     "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "^7.4.0",

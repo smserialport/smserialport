@@ -14,10 +14,10 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@simple-serialport-gsm/core": ["packages/core/src/index.ts"],
-      "@simple-serialport-gsm/adapters": ["packages/adapters/src/index.ts"],
-      "@simple-serialport-gsm/utils": ["packages/utils/src/index.ts"],
-      "@simple-serialport-gsm/types": ["packages/types/src/index.ts"]
+      "@smserialport/core": ["packages/core/src/index.ts"],
+      "@smserialport/adapters": ["packages/adapters/src/index.ts"],
+      "@smserialport/utils": ["packages/utils/src/index.ts"],
+      "@smserialport/types": ["packages/types/src/index.ts"]
     }
   },
   "include": ["./*.ts", "./packages/**/*.ts"],

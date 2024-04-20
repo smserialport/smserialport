@@ -1,9 +1,9 @@
 import { SerialPort } from 'serialport'
 
-import { Unicode, Utils } from '@simple-serialport-gsm/utils'
-import { Adapter, AdapterOptinos } from '@simple-serialport-gsm/types'
+import { Unicode, Utils } from '@smserialport/utils'
+import { Adapter, AdapterOptinos } from '@smserialport/types'
 
-import type { WindowsOpenOptions } from '@simple-serialport-gsm/types'
+import type { WindowsOpenOptions } from '@smserialport/types'
 
 /**
  * 中国大陆地区

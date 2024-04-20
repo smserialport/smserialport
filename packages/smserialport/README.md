@@ -1,6 +1,6 @@
-# @smserialport/types
+# smserialport
 
-类型
+GSM
 
 # Documentation
 

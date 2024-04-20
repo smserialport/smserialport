@@ -7,14 +7,6 @@ export abstract class Adapter<TConfig = void> {
   abstract send(options: WindowsOpenOptions): Promise<boolean>
 }
 
-export interface SerialPortOptions {
-  path: string
-  baudRate: number
-  dataBits: number
-  stopBits: number
-  parity?: 'none' | 'even' | 'odd' | 'mark' | 'space'
-}
-
 /**
  * 处理函数参数
  */

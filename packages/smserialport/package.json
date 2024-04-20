@@ -1,5 +1,5 @@
 {
-  "name": "simple-serialport-gsm",
+  "name": "smserialport",
   "version": "0.0.4",
   "scripts": {
     "build": "unbuild",
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/imba97/simple-serialport-gsm"
+    "url": "https://github.com/imba97/smserialport"
   },
   "exports": {
     ".": {
@@ -23,10 +23,10 @@
     "dist"
   ],
   "dependencies": {
-    "@simple-serialport-gsm/adapters": "workspace:*",
-    "@simple-serialport-gsm/core": "workspace:*"
+    "@smserialport/adapters": "workspace:*",
+    "@smserialport/core": "workspace:*"
   },
   "devDependencies": {
-    "@simple-serialport-gsm/types": "workspace:*"
+    "@smserialport/types": "workspace:*"
   }
 }

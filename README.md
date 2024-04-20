@@ -1,15 +1,15 @@
-# simple-serialport-gsm
+# smserialport
 
-一个简单的串口 GSM 库
+一个串口 SMS 库，可通过简单设置即可调用串口设备发送短信。
 
 # 使用
 
-```js
-import { Serialport, MainlandChinaAdapter } from "simple-serialport-gsm";
+```typescript
+import { SMSerialport, MainlandChinaAdapter } from "smserialport";
 
-const serialport = new Serialport(MainlandChinaAdapter)
+const smserialport = new SMSerialport(MainlandChinaAdapter)
 
-serialport.config({
+smserialport.config({
   // 短信发送者
   sender: '17*******97',
   // 短信接收者
@@ -18,7 +18,7 @@ serialport.config({
   message: 'ABC ### 测试'
 })
 
-serialport.send({
+smserialport.send({
   // 串口
   path: "COM9",
   baudRate: 115200,

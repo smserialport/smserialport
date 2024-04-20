@@ -2,9 +2,9 @@ import {
   Adapter,
   AdapterOptinos,
   WindowsOpenOptions
-} from '@simple-serialport-gsm/types'
+} from '@smserialport/types'
 
-export default class Serialport<TConfig> {
+export default class SMSerialport<TConfig> {
   private _adapter: Adapter<TConfig>
 
   constructor(adapter: new () => Adapter<TConfig>) {
