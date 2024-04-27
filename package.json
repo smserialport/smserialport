@@ -16,8 +16,8 @@
     "url": "git+ssh://git@github.com/imba97/smserialport.git"
   },
   "keywords": [
-    "zip",
-    "upload"
+    "SMS",
+    "serialport"
   ],
   "author": "imba97",
   "license": "MIT",
