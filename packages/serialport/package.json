@@ -1,0 +1,33 @@
+{
+  "name": "@smserialport/serialport",
+  "version": "0.0.6",
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imba97/smserialport",
+    "directory": "packages/serialport"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@smserialport/utils": "workspace:^",
+    "serialport": "^12.0.0"
+  },
+  "devDependencies": {
+    "@smserialport/types": "workspace:^"
+  }
+}
