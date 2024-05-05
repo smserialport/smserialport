@@ -30,3 +30,8 @@ export interface WindowsOpenOptions extends OpenOptions {
   /** RTS mode defaults to handshake */
   rtsMode?: 'handshake' | 'enable' | 'toggle'
 }
+
+export abstract class ISerialPortAbstract {
+  abstract send(commands: Array<string | Buffer>): Promise<string[]>
+  abstract close(): void
+}

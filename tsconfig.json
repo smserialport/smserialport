@@ -15,11 +15,11 @@
     "baseUrl": ".",
     "paths": {
       "@smserialport/core": ["packages/core/src/index.ts"],
+      "@smserialport/serialport": ["packages/serialport/src/index.ts"],
       "@smserialport/adapters": ["packages/adapters/src/index.ts"],
       "@smserialport/utils": ["packages/utils/src/index.ts"],
       "@smserialport/types": ["packages/types/src/index.ts"]
     }
   },
-  "include": ["./*.ts", "./packages/**/*.ts"],
-  "exclude": ["**/dist/**", "**/node_modules/**"]
+  "include": ["./*.ts", "./packages/**/*.ts"]
 }

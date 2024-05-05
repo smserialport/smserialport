@@ -11,18 +11,24 @@ export default class SMSerialport<TConfig> {
     this._adapter = new adapter()
   }
 
-  config(options: AdapterOptinos) {
+  send(options: AdapterOptinos): Promise<boolean>
+  send(receiver: string, message: string): Promise<boolean>
+  send(receiverOrOptions: unknown, message?: unknown): Promise<boolean> {
     this.hasAdapter()
 
-    this._adapter.config(options)
-
-    return this
+    return this._adapter.send(receiverOrOptions as any, message as any)
   }
 
-  send(options: WindowsOpenOptions) {
+  config(options: WindowsOpenOptions) {
     this.hasAdapter()
 
-    this._adapter.send(options)
+    return this._adapter.config(options)
+  }
+
+  async getSender() {
+    this.hasAdapter()
+
+    return this._adapter.getSender()
   }
 
   private hasAdapter() {

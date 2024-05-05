@@ -24,8 +24,8 @@
     "dist"
   ],
   "dependencies": {
-    "@smserialport/utils": "workspace:*",
-    "serialport": "^12.0.0"
+    "@smserialport/serialport": "workspace:*",
+    "@smserialport/utils": "workspace:*"
   },
   "devDependencies": {
     "@smserialport/types": "workspace:*"

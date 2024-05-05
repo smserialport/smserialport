@@ -1,6 +1,6 @@
-import { SerialPort } from 'serialport'
+import { useSerialport } from '@smserialport/serialport'
 
-import { Unicode, Utils } from '@smserialport/utils'
+import { Unicode } from '@smserialport/utils'
 import { Adapter, AdapterOptinos } from '@smserialport/types'
 
 import type { WindowsOpenOptions } from '@smserialport/types'
@@ -9,7 +9,24 @@ import type { WindowsOpenOptions } from '@smserialport/types'
  * 中国大陆地区
  */
 export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
-  public config(options: AdapterOptinos) {
+  send(options: AdapterOptinos): Promise<boolean>
+  send(receiver: string, message: string): Promise<boolean>
+  async send(receiverOrOptions: unknown, message?: unknown): Promise<boolean> {
+    const options: AdapterOptinos =
+      typeof receiverOrOptions === 'string'
+        ? { receiver: receiverOrOptions, message: message as string }
+        : (receiverOrOptions as AdapterOptinos)
+
+    if (!options.sender) {
+      const sender = await this.getSender()
+
+      if (!sender) {
+        throw new Error('Get sender failed')
+      }
+
+      options.sender = sender
+    }
+
     // 发送人手机号的处理
     const sender = '089168' + this.reverse(`${options.sender}F`)
     // 接收人手机号的处理
@@ -21,53 +38,38 @@ export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
     // CMGS 长度
     const CMGSLength = CMGSLengthString.length / 2
 
-    this._config = {
-      CMGSLength,
-      message: sender + CMGSLengthString
-    }
-  }
+    const sendMessage = sender + CMGSLengthString
 
-  async send(options: WindowsOpenOptions): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      const port = new SerialPort(options)
-
       // 10 秒超时
       const timer = setTimeout(() => {
         reject(new Error('Timed out'))
       }, 10000)
 
-      let isCMGS = false
-
-      port.on('data', (data: Buffer) => {
-        const result = data.toString()
-
-        // 匹配 +CMGS 开头的
-        if (/^\+CMGS/.test(result.trim())) {
-          isCMGS = true
-        }
-
-        // 已匹配到 +CMGS 并且匹配到 OK 则发送成功
-        if (isCMGS && /^OK$/.test(result.trim())) {
-          port.close()
-          port.destroy()
-          clearTimeout(timer)
+      this.serialport
+        .send([
+          'AT+CMGF=0',
+          'AT+CSCS="GSM"',
+          `AT+CMGS=${CMGSLength}`,
+          sendMessage,
+          Buffer.from([0x1a]),
+          '\r'
+        ])
+        .then(() => {
           resolve(true)
-        }
-      })
-
-      port.on('open', async () => {
-        port.write('AT+CMGF=0\r')
-        await Utils.sleep(500)
-        port.write('AT+CSCS="GSM"\r')
-        await Utils.sleep(500)
-        port.write(`AT+CMGS=${this._config.CMGSLength}\r`)
-        await Utils.sleep(500)
-        port.write(this._config.message)
-        await Utils.sleep(500)
-        port.write(Buffer.from([0x1a]))
-        port.write('\r')
-      })
+          clearTimeout(timer)
+        })
     })
+  }
+
+  async config(options: WindowsOpenOptions) {
+    this.serialport = useSerialport(options)
+  }
+
+  async getSender(): Promise<string | undefined> {
+    const response = await this.serialport.send(['AT+CNUM'])
+    const [, sender] = /"(\d{11})"/.exec(response.join('')) || []
+    return sender
   }
 
   /**

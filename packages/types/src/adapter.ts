@@ -1,10 +1,14 @@
-import { WindowsOpenOptions } from './serialport'
+import { WindowsOpenOptions, ISerialPortAbstract } from './serialport'
 
-export abstract class Adapter<TConfig = void> {
-  protected _config!: TConfig
+export abstract class Adapter<TConfig> {
+  protected serialportConfig!: TConfig
+  protected serialport!: ISerialPortAbstract
 
-  abstract config(options: AdapterOptinos): void
-  abstract send(options: WindowsOpenOptions): Promise<boolean>
+  abstract send(options: AdapterOptinos): Promise<boolean>
+  abstract send(receiver: string, message: string): Promise<boolean>
+
+  abstract config(options: WindowsOpenOptions): void
+  abstract getSender(): Promise<string | undefined>
 }
 
 /**
