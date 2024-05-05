@@ -33,7 +33,7 @@ class ISerialPort {
     })
   }
 
-  async send(commands: string[]): Promise<string[]> {
+  async send(commands: Array<string | Buffer>): Promise<string[]> {
     return new Promise(async (resolve) => {
       await this.checkIsOpen()
 
