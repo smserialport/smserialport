@@ -38,4 +38,8 @@ class ISerialPort {
       }
     })
   }
+
+  close() {
+    this.serialport.close()
+  }
 }
