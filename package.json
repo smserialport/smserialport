@@ -10,7 +10,8 @@
     "release": "bumpp -r",
     "clean": "rimraf --glob packages/*/node_modules",
     "docs:dev": "pnpm -C docs run dev",
-    "docs:build": "pnpm -C docs run build"
+    "docs:build": "pnpm -C docs run build",
+    "docs:preview": "pnpm -C docs run preview"
   },
   "type": "module",
   "repository": {
