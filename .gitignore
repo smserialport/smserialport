@@ -10,3 +10,5 @@
 .history
 node_modules
 dist
+
+docs/.vitepress/cache

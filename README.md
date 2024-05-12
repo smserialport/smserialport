@@ -12,7 +12,7 @@
 `sender` 是可选的，如果不设置默认会自动获取，但有可能获取不到
 
 ```typescript
-import { SMSerialport, MainlandChinaAdapter } from "smserialport";
+import { SMSerialport, MainlandChinaAdapter } from 'smserialport'
 
 const smserialport = new SMSerialport(MainlandChinaAdapter)
 
