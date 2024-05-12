@@ -1,6 +1,6 @@
 {
   "index_name": "smserialport",
-  "start_urls": ["/smserialport/"],
+  "start_urls": ["/"],
   "rateLimit": 8,
   "maxDepth": 10,
   "selectors": {
