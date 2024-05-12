@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'docs/**'
+      - '.github/workflows/docs.yml'
 
   # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
@@ -70,6 +71,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Algolia
     steps:
+      - name: File List
+        run: ls -la
+
       - name: Get the content of algolia.json as config
         id: algolia_config
         run: echo "config=$(cat algolia.json | jq -r tostring)" >> $GITHUB_OUTPUT
