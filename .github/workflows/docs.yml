@@ -71,8 +71,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Algolia
     steps:
-      - name: Pwd
-        run: pwd
+      - name: Find
+        run: find ./ -name algolia.json
 
       - name: Get the content of algolia.json as config
         id: algolia_config
