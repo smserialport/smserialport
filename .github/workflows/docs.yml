@@ -52,17 +52,6 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
-      - name: Get the content of algolia.json as config
-        id: algolia_config
-        run: echo "config=$(cat algolia.json | jq -r tostring)" >> $GITHUB_OUTPUT
-
-      - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
-        env:
-          APPLICATION_ID: 7H1MB42335
-          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-          CONFIG: ${{ steps.algolia_config.outputs.config }}
-
   # 部署工作
   deploy:
     environment:
@@ -75,3 +64,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  algolia:
+    needs: deploy
+    runs-on: ubuntu-latest
+    name: Algolia
+    steps:
+      - name: Get the content of algolia.json as config
+        id: algolia_config
+        run: echo "config=$(cat algolia.json | jq -r tostring)" >> $GITHUB_OUTPUT
+
+      - name: Push indices to Algolia
+        uses: signcl/docsearch-scraper-action@master
+        env:
+          APPLICATION_ID: 7H1MB42335
+          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
