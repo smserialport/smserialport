@@ -53,6 +53,9 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
+      - name: Test Script
+        run: pwd && ls -al
+
   # 部署工作
   deploy:
     environment:
