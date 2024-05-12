@@ -37,16 +37,31 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Install dependencies
         run: pnpm install
+
       - name: Build with VitePress
         run: pnpm docs:build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
+
+      - name: Get the content of algolia.json as config
+        id: algolia_config
+        run: echo "config=$(cat algolia.json | jq -r tostring)" >> $GITHUB_OUTPUT
+
+      - name: Push indices to Algolia
+        uses: signcl/docsearch-scraper-action@master
+        env:
+          APPLICATION_ID: 7H1MB42335
+          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
 
   # 部署工作
   deploy:
