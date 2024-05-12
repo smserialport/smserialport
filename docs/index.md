@@ -35,10 +35,10 @@ features:
 
 <style>
 :root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #5c9e31 30%, #fcea2b);
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #5c9e31 50%, #fcea2b 50%);
-  --vp-home-hero-image-filter: blur(44px);
+  --vp-home-hero-name-color: transparent !important;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #5c9e31 30%, #fcea2b) !important;
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #5c9e31 50%, #fcea2b 50%) !important;
+  --vp-home-hero-image-filter: blur(44px) !important;
 }
 
 .image-src {
