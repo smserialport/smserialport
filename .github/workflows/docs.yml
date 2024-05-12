@@ -53,13 +53,6 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
-      # 保留构建文件以供后续使用
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: algolia-file
-          path: algolia.json  # upload only algolia.json
-
   # 部署工作
   deploy:
     environment:
@@ -72,25 +65,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  algolia:
-    needs: deploy
-    runs-on: ubuntu-latest
-    name: Algolia
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: algolia-file
-          path: .  # download to the current directory
-
-      - name: Get the content of algolia.json as config
-        id: algolia_config
-        run: echo "config=$(cat algolia.json | jq -r tostring)" >> $GITHUB_OUTPUT
-
-      - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
-        env:
-          APPLICATION_ID: 7H1MB42335
-          API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
-          CONFIG: ${{ steps.algolia_config.outputs.config }}
