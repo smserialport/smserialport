@@ -1,14 +1,14 @@
 import { useSerialport } from '@smserialport/serialport'
 
 import { Unicode } from '@smserialport/utils'
-import { Adapter, AdapterOptinos } from '@smserialport/types'
+import { AbstractAdapter, AdapterOptinos } from '@smserialport/types'
 
 import type { WindowsOpenOptions } from '@smserialport/types'
 
 /**
  * 中国大陆地区
  */
-export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
+export class MainlandChinaAdapter extends AbstractAdapter {
   send(options: AdapterOptinos): Promise<boolean>
   send(receiver: string, message: string): Promise<boolean>
   async send(receiverOrOptions: unknown, message?: unknown): Promise<boolean> {
@@ -88,9 +88,4 @@ export class MainlandChinaAdapter extends Adapter<MainlandChinaHandleReturn> {
 
     return phoneReverse.join('')
   }
-}
-
-export interface MainlandChinaHandleReturn {
-  CMGSLength: number
-  message: string
 }

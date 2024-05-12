@@ -1,13 +1,13 @@
 import {
-  Adapter,
+  AbstractAdapter,
   AdapterOptinos,
   WindowsOpenOptions
 } from '@smserialport/types'
 
-export default class SMSerialport<TConfig> {
-  private _adapter: Adapter<TConfig>
+export default class SMSerialport {
+  private _adapter: AbstractAdapter
 
-  constructor(adapter: new () => Adapter<TConfig>) {
+  constructor(adapter: new () => AbstractAdapter) {
     this._adapter = new adapter()
   }
 
