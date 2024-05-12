@@ -71,12 +71,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Algolia
     steps:
-      - name: File List
-        run: ls -la
+      - name: Pwd
+        run: pwd
 
       - name: Get the content of algolia.json as config
         id: algolia_config
         run: echo "config=$(cat algolia.json | jq -r tostring)" >> $GITHUB_OUTPUT
+
+      - name: Show Config
+        run: echo ${{ steps.algolia_config.outputs.config }}
 
       - name: Push indices to Algolia
         uses: signcl/docsearch-scraper-action@master
