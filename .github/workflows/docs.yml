@@ -69,6 +69,7 @@ jobs:
   algolia:
     runs-on: ubuntu-latest
     name: algolia-crawler
+    needs: deploy
     steps:
       - uses: actions/checkout@v2
       - name: crawling
