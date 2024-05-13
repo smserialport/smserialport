@@ -36,7 +36,8 @@ export default defineConfig({
     ],
 
     search: {
-      provider: 'algolia',
+      provider: 'local',
+      // TODO: Add Algolia search
       options: algolia
     }
   }
