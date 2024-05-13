@@ -68,11 +68,14 @@ jobs:
 
   algolia:
     runs-on: ubuntu-latest
-    name: algolia-crawler
+    name: algolia
     needs: deploy
     steps:
-      - uses: actions/checkout@v2
-      - name: crawling
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Crawling
         # the `uses' attribute must be a path, a Docker image, or owner/repo@ref
         uses: darrenjennings/algolia-docsearch-action@master
         with:
