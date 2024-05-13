@@ -7,6 +7,9 @@ export default defineConfig({
   title: 'SMSerialport',
 
   base: '/smserialport/',
+  sitemap: {
+    hostname: 'https://imba97.github.io/smserialport/'
+  },
 
   lastUpdated: true,
   cleanUrls: true,
