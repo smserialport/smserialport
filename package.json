@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/imba97/smserialport/issues"
   },
-  "homepage": "https://github.com/imba97/smserialport#readme",
+  "homepage": "https://imba97.github.io/smserialport/",
   "devDependencies": {
     "@types/node": "^18.19.31",
     "@typescript-eslint/eslint-plugin": "^7.4.0",

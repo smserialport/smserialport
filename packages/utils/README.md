@@ -4,4 +4,4 @@
 
 # Documentation
 
-[smserialport](https://github.com/imba97/smserialport)
+[smserialport](https://imba97.github.io/smserialport/)
