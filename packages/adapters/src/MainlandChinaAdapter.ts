@@ -52,8 +52,7 @@ export class MainlandChinaAdapter extends AbstractAdapter {
           'AT+CSCS="GSM"',
           `AT+CMGS=${CMGSLength}`,
           sendMessage,
-          Buffer.from([0x1a]),
-          '\r'
+          [Buffer.from([0x1a]), '\r']
         ])
         .then(() => {
           resolve(true)
