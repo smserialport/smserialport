@@ -1,3 +1,5 @@
+export * from './utils'
+
 export { AbstractAdapter } from './adapter'
 export type { AdapterOptinos } from './adapter'
 

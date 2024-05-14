@@ -1,13 +1,11 @@
 import { SerialPort } from 'serialport'
 import { Utils } from '@smserialport/utils'
 
-import { WindowsOpenOptions } from '@smserialport/types'
+import { MaybeArray, WindowsOpenOptions } from '@smserialport/types'
 
 export const useSerialport = (options: WindowsOpenOptions) => {
   return new ISerialPort(options)
 }
-
-type MaybeArray<T> = T | T[]
 
 class ISerialPort {
   private serialport: SerialPort

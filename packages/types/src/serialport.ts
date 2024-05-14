@@ -1,3 +1,5 @@
+import { MaybeArray } from './utils'
+
 export interface OpenOptions {
   /** The system path of the serial port you want to open. For example, `/dev/tty.XXX` on Mac/Linux, or `COM1` on Windows */
   path: string
@@ -32,6 +34,6 @@ export interface WindowsOpenOptions extends OpenOptions {
 }
 
 export abstract class ISerialPortAbstract {
-  abstract send(commands: Array<string | Buffer>): Promise<string[]>
+  abstract send(commands: Array<MaybeArray<string | Buffer>>): Promise<string[]>
   abstract close(): void
 }
