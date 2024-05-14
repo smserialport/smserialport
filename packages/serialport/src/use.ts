@@ -7,6 +7,8 @@ export const useSerialport = (options: WindowsOpenOptions) => {
   return new ISerialPort(options)
 }
 
+type MaybeArray<T> = T | T[]
+
 class ISerialPort {
   private serialport: SerialPort
 
@@ -33,7 +35,7 @@ class ISerialPort {
     })
   }
 
-  async send(commands: Array<string | Buffer>): Promise<string[]> {
+  async send(commands: Array<MaybeArray<string | Buffer>>): Promise<string[]> {
     return new Promise(async (resolve) => {
       await this.checkIsOpen()
 
@@ -54,7 +56,15 @@ class ISerialPort {
       this.serialport.on('data', listener)
 
       for (const command of [...commands, 'AT']) {
-        this.serialport.write(`${command}\r`)
+        // if command is an array, no need to sleep
+        if (Array.isArray(command)) {
+          for (const c of command) {
+            this.serialport.write(`${c}\r`)
+          }
+        } else {
+          this.serialport.write(`${command}\r`)
+        }
+
         await Utils.sleep(500)
       }
     })
