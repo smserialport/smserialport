@@ -1,7 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-import { algolia } from './search/algolia'
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'SMSerialport',
@@ -36,9 +34,7 @@ export default defineConfig({
     ],
 
     search: {
-      provider: 'local',
-      // TODO: Add Algolia search
-      options: algolia
+      provider: 'local'
     }
   }
 })
