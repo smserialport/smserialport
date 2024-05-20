@@ -1,6 +1,6 @@
 {
   "name": "@smserialport/monorepo",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "private": true,
   "packageManager": "pnpm@8.15.7",
   "description": "一个通过串口发送短信的工具",
