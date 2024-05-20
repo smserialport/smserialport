@@ -1,3 +1,5 @@
+export { getSerialportList } from '@smserialport/serialport'
+
 export { AbstractAdapter } from '@smserialport/types'
 export type { AdapterOptinos } from '@smserialport/types'
 

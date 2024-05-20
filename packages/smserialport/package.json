@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "@smserialport/adapters": "workspace:*",
-    "@smserialport/core": "workspace:*"
+    "@smserialport/core": "workspace:*",
+    "@smserialport/serialport": "workspace:*"
   },
   "devDependencies": {
     "@smserialport/types": "workspace:*"

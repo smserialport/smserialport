@@ -137,6 +137,9 @@ importers:
       '@smserialport/core':
         specifier: workspace:*
         version: link:../core
+      '@smserialport/serialport':
+        specifier: workspace:^
+        version: link:../serialport
     devDependencies:
       '@smserialport/types':
         specifier: workspace:*
