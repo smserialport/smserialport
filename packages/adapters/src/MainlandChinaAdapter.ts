@@ -3,12 +3,17 @@ import { useSerialport } from '@smserialport/serialport'
 import { Unicode } from '@smserialport/utils'
 import { AbstractAdapter, AdapterOptinos } from '@smserialport/types'
 
-import type { WindowsOpenOptions } from '@smserialport/types'
+import type {
+  WindowsOpenOptions,
+  ISerialPortAbstract
+} from '@smserialport/types'
 
 /**
  * 中国大陆地区
  */
 export class MainlandChinaAdapter extends AbstractAdapter {
+  serialport!: ISerialPortAbstract
+
   send(options: AdapterOptinos): Promise<boolean>
   send(receiver: string, message: string): Promise<boolean>
   async send(receiverOrOptions: unknown, message?: unknown): Promise<boolean> {

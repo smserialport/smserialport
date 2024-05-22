@@ -1,7 +1,7 @@
 import { WindowsOpenOptions, ISerialPortAbstract } from './serialport'
 
 export abstract class AbstractAdapter {
-  protected serialport!: ISerialPortAbstract
+  abstract serialport: ISerialPortAbstract
 
   abstract send(options: AdapterOptinos): Promise<boolean>
   abstract send(receiver: string, message: string): Promise<boolean>
