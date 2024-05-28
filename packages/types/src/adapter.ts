@@ -8,6 +8,12 @@ export abstract class AbstractAdapter {
 
   abstract config(options: WindowsOpenOptions): void
   abstract getSender(): Promise<string | undefined>
+
+  close() {
+    if (this.serialport) {
+      this.serialport.close()
+    }
+  }
 }
 
 /**

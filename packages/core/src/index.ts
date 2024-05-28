@@ -31,6 +31,12 @@ export default class SMSerialport {
     return this._adapter.getSender()
   }
 
+  close() {
+    this.hasAdapter()
+
+    return this._adapter.close()
+  }
+
   private hasAdapter() {
     if (!this._adapter) {
       throw new Error('Please use the "use" method to select an adapter')

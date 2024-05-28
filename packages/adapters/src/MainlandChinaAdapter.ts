@@ -48,6 +48,7 @@ export class MainlandChinaAdapter extends AbstractAdapter {
     return new Promise((resolve, reject) => {
       // 10 秒超时
       const timer = setTimeout(() => {
+        this.serialport.close()
         reject(new Error('Timed out'))
       }, 10000)
 
@@ -60,8 +61,9 @@ export class MainlandChinaAdapter extends AbstractAdapter {
           [Buffer.from([0x1a]), '\r']
         ])
         .then(() => {
-          resolve(true)
+          this.serialport.close()
           clearTimeout(timer)
+          resolve(true)
         })
     })
   }
@@ -73,6 +75,9 @@ export class MainlandChinaAdapter extends AbstractAdapter {
   async getSender(): Promise<string | undefined> {
     const response = await this.serialport.send(['AT+CNUM'])
     const [, sender] = /"(\d{11})"/.exec(response.join('')) || []
+
+    this.serialport.close()
+
     return sender
   }
 
