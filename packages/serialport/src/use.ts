@@ -42,7 +42,7 @@ class ISerialPort {
       const listener = (data: Buffer) => {
         const result = data.toString().replace(/(\r|\n)/g, '')
 
-        if (result === 'ATOK') {
+        if (result.endsWith('ATOK')) {
           resolve(response)
           this.serialport.off('data', listener)
           return
