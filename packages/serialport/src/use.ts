@@ -69,6 +69,10 @@ class ISerialPort {
   }
 
   close() {
+    if (!this.serialport.isOpen) {
+      return
+    }
+
     this.serialport.close()
   }
 }

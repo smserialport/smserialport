@@ -10,9 +10,11 @@ export abstract class AbstractAdapter {
   abstract getSender(): Promise<string | undefined>
 
   close() {
-    if (this.serialport) {
-      this.serialport.close()
+    if (!this.serialport) {
+      return
     }
+
+    this.serialport.close()
   }
 }
 
